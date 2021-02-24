@@ -80,16 +80,26 @@ public class Lesson3 {
         int maxTryCount = 3;
         int answer;
         boolean repeat = true;
-        int userAnswer;
+        int userAnswer = 10;
         while (repeat) {
             answer = rn.nextInt(10);
             System.out.println("Угадай число от 0 до 9. У Вас три попытки.");
+            while (!sc.hasNextInt()){
+                if (sc.hasNextInt()){
+                    userAnswer = sc.nextInt();
+                } else {
+                    sc.nextLine();
+                    System.out.println("Вы ввели не число. Введите число от 0 до 9");
+                }
+            }
             userAnswer = sc.nextInt();
             for (int tryCount = 1; tryCount < maxTryCount; tryCount++) {
                 sc.nextLine();
                 while(userAnswer < 0 || userAnswer > 9){
                     System.out.println("Вы ввели не корректное число. Введите число от 0 до 9:");
-                    userAnswer = sc.nextInt();
+                    if (sc.hasNextInt()){
+                        userAnswer = sc.nextInt();
+                    }
                 }
                     if (userAnswer == answer) {
                     break;
