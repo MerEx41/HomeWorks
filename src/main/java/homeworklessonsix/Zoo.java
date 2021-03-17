@@ -14,4 +14,5 @@ public class Zoo {
         System.out.println("Животных создано: " + Animal.count);
     }
 
+
 }
